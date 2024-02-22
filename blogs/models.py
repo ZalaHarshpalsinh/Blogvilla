@@ -9,4 +9,4 @@ class Blog(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Title:{title}\nContent:{content}\n"
+        return f"Title:{self.title}\nContent:{self.content}\n"
