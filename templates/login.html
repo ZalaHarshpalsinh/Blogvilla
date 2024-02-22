@@ -11,7 +11,7 @@
                     <h2 class="card-title text-center mb-4">Login</h2>
                     <form method="POST">
                         {% csrf_token %}
-
+                        
                         {% for field in form %}
                         <div class="mb-3 text-">
                             <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>

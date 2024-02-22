@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
 </head>
-<body>
+<body style="background-color:rgb(201, 207, 213)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">Blog Villa</a>
@@ -18,9 +18,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                {% if logged_in %}
+                {% if request.user.is_authenticated %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'blogs:index' %}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'blogs:index' %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blogs:myblogs' %}">My blogs</a>

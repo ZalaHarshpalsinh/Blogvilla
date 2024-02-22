@@ -1,0 +1,6 @@
+{% extends 'blog.html' %}
+
+{% block footer %}
+<a class="btn btn-info" href="{% url 'blogs:update_blog' blog.id %}"></a>
+<a class="btn btn-danger" href="{% url 'blogs:delete_blog' blog.id %}"></a>
+{% endblock %}

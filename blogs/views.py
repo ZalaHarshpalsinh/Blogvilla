@@ -7,6 +7,13 @@ from django.contrib.auth import login,logout,authenticate
 
 # Create your views here.
 def index(request):
+    if request.user.is_authenticated:
+        blogs = Blog.objects.all()
+        return render(request, 'index.html', {
+            'blogs' : blogs,
+        })
+    else:
+        return HttpResponseRedirect(reverse('blogs:login'))
     pass
 
 def register(request):

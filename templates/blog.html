@@ -1,0 +1,14 @@
+<div class="col">
+    <div class="card shadow bg-light">
+        <div class="card-header">
+            Author : {{blog.user}}
+        </div>
+        <div class="card-body ">
+            <h5 class="card-title">{{blog.title}}</h5>
+            <p class="card-text">{{blog.content}}</p>
+        </div>
+        <div class="card-footer">
+            {% block footer %}{% endblock %}
+        </div>
+    </div>
+</div>
