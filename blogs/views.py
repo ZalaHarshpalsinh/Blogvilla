@@ -84,8 +84,19 @@ def update_blog(request, blog_id):
         form = BlogForm(request.POST, instance=blog)
         if form.is_valid():
             form.save()
+            return redirect(reverse('blogs:myblogs') + f"#{blog.id}")
     return redirect('blogs:myblogs')
 
 @login_required
-def delete_blog(request):
-    pass
+def delete_blog(request, blog_id):
+    if request.method == 'POST':
+        next_blog = request.POST['next_blog']
+        pre_blog = request.POST['pre_blog']
+        blog = get_object_or_404(Blog, id=blog_id, user=request.user)
+        blog.delete()
+        if next_blog:
+            return redirect(reverse('blogs:myblogs') + f"#{next_blog}")
+        elif pre_blog:
+            return redirect(reverse('blogs:myblogs') + f"#{pre_blog}")
+
+    return redirect('blogs:myblogs')    

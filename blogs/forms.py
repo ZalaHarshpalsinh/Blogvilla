@@ -11,4 +11,9 @@ class BlogForm(forms.ModelForm):
             'title' : 'Enter the blog title',
             'content' : 'Write your blog here',
         }
+        error_messages = {
+            "title": {
+                "valid": "Please enter a valid title",
+            }
+        }
 
