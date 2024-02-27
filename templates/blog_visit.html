@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block body %}
+<h2 class="text-center my-2">Blog</h2>
+<div class="container">
+    <div class="row">
+            {% include 'blog.html' %}
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.querySelector('.card').parentElement.classList.add('col-xxl-12','col-sm-12');
+</script>
+{% endblock %}

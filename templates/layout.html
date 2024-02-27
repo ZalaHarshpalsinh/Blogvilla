@@ -7,10 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block style %}
+    {% endblock %}
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body style="background-color:rgb(201, 207, 213)">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
           <a class="navbar-brand" href="#">Blog Villa</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,4 +45,6 @@
     {% block body %}
     {% endblock %}
 </body>
+{% block script %}
+{% endblock %}
 </html>

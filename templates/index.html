@@ -1,24 +1,22 @@
 {% extends 'layout.html' %}
 
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'card_preview.css' %}">
+{% endblock %}
+
 {% block title %} Home {% endblock %}
 
 {% block body %}
-<h2 class="text-center">All blogs</h2>
+<h2 class="text-center my-4">All blogs</h2>
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
         {% for blog in blogs %}
-        <div class="col">
-            <div class="card shadow bg-light">
-                <div class="card-header">
-                    Author : {{blog.user}}
-                </div>
-                <div class="card-body ">
-                    <h5 class="card-title">{{blog.title}}</h5>
-                    <p class="card-text">{{blog.content}}</p>
-                </div>
-            </div>
-        </div>
+            {% include 'blog.html' %}
+        {% empty %}
+        <h3 class="col-3 text-center">No blogs uploaded</h3>
         {% endfor %}
 
     </div>

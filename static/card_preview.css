@@ -1,0 +1,10 @@
+.card-preview .card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 5; /* number of lines to show */
+  }
+.card-preview-body
+{
+  height: 180px;
+}
