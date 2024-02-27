@@ -1,6 +1,6 @@
 {% extends 'blog.html' %}
 
 {% block footer %}
-<a class="btn btn-info" href="{% url 'blogs:update_blog' blog.id %}">Update</a>
-<a class="btn btn-danger" href="{% url 'blogs:delete_blog' blog.id %}">Delete</a>
+<a class="btn btn-info update-button" data-bs-toggle="modal" data-bs-target="#updateModal" href="{% url 'blogs:update_blog' blog.id %}">Update</a>
+<a class="btn btn-danger " href="{% url 'blogs:delete_blog' blog.id %}">Delete</a>
 {% endblock %}

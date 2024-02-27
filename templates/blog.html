@@ -1,11 +1,11 @@
 <div class="col-12 col-sm-6 col-xxl-4">
-    <div class="card card-preview shadow bg-light my-3">
+    <div id='{{ blog.id }}'  class="card card-preview shadow bg-light my-3">
         <div class="card-header">
             Author : {{blog.user}}
         </div>
         <div class="card-body card-preview-body position-relative">
-            <h5 class="card-title">{{blog.title}}</h5>
-            <p class="card-text">{{blog.content}}</p>
+            <h5 class="card-title" id="blogTitle">{{blog.title}}</h5>
+            <p class="card-text" id="blogContent">{{blog.content}}</p>
             <a  href="{% url 'blogs:single_blog' blog.id %}" class="stretched-link "></a>
             </div>
             <div class="card-footer">

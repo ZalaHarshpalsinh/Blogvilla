@@ -77,8 +77,14 @@ def myblogs(request):
     })
 
 @login_required
-def update_blog(request):
-    pass
+def update_blog(request, blog_id):
+
+    if request.method == 'POST':
+        blog = get_object_or_404(Blog, id=blog_id, user=request.user)
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+    return redirect('blogs:myblogs')
 
 @login_required
 def delete_blog(request):
