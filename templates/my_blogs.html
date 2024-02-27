@@ -11,7 +11,7 @@
 {% block body %}
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="height: 100vh;">
         <div class="col-12  col-lg-4 bg-dark">
             <div class="card my-4 shadow rounded sticky-top" style="top: 100px">
                 <div class="card-body">
@@ -40,16 +40,8 @@
                 <div class="row">
                     {% for blog in my_blogs %}
                         {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
-                        {% include 'editable_blog.html' %}
                     {% empty %}
-                    <h3 class="col-auto text-center">No blogs uploaded</h3>
+                    <h3 class="col-12 my-4 bg-info text-center">No blogs uploaded</h3>
                     {% endfor %}
 
                 </div>

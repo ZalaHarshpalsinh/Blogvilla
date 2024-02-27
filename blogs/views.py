@@ -9,7 +9,7 @@ from .forms import UserCreationForm, AuthenticationForm, BlogForm
 # Create your views here.
 @login_required
 def index(request):
-    blogs = Blog.objects.all()
+    blogs = reversed(Blog.objects.all())
     return render(request, 'index.html', {
         'blogs' : blogs,
     })
@@ -60,8 +60,17 @@ def logout_request(request):
 
 @login_required
 def myblogs(request):
-    my_blogs = Blog.objects.filter(user=request.user)
-    blog_form = BlogForm()
+
+    if request.method == 'POST':
+        blog_form = BlogForm(request.POST)
+        if blog_form.is_valid():
+            blog = blog_form.save(commit=False)
+            blog.user = request.user
+            blog.save()
+    else:
+        blog_form = BlogForm()
+
+    my_blogs = reversed(Blog.objects.filter(user=request.user))
     return render(request, 'my_blogs.html', {
         'my_blogs' : my_blogs,
         'blog_form' : blog_form,

@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{% url 'blogs:myblogs' %}">My blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blogs:logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'blogs:logout' %}">Logout ( {{ request.user.username }} )</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
