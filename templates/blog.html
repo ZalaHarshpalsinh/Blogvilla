@@ -1,7 +1,8 @@
 <div class="col-12 col-sm-6 col-xxl-4">
-    <div id='{{ blog.id }}'  class="card card-preview shadow bg-light my-3">
-        <div class="card-header">
-            Author : {{blog.user}}
+    <div id='{{ blog.id }}'  class="card card-preview shadow-lg bg-light my-3 border-dark border-3">
+        <img src="{{ blog.image.url }}" class="card-image-top" alt="blog_image">
+        <div class="card-header" style="background-color: black; color: white;">
+            <h5>Author : {{blog.user}}</h5>
         </div>
         <div class="card-body card-preview-body position-relative">
             <h5 class="card-title" id="blogTitle">{{blog.title}}</h5>

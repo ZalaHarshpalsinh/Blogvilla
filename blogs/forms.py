@@ -6,9 +6,10 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = ['title', 'content']
+        fields = ['title', 'image', 'content']
         help_texts = {
             'title' : 'Enter the blog title',
+            'image' : 'Select a image for blog',
             'content' : 'Write your blog here',
         }
         error_messages = {

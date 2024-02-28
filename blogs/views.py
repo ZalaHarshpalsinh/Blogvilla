@@ -62,7 +62,7 @@ def logout_request(request):
 def myblogs(request):
 
     if request.method == 'POST':
-        blog_form = BlogForm(request.POST)
+        blog_form = BlogForm(request.POST, request.FILES)
         if blog_form.is_valid():
             blog = blog_form.save(commit=False)
             blog.user = request.user
@@ -70,10 +70,12 @@ def myblogs(request):
     else:
         blog_form = BlogForm()
 
+    update_form = BlogForm()
     my_blogs = reversed(Blog.objects.filter(user=request.user))
     return render(request, 'my_blogs.html', {
         'my_blogs' : my_blogs,
         'blog_form' : blog_form,
+        'update_form' : update_form,
     })
 
 @login_required
@@ -81,7 +83,7 @@ def update_blog(request, blog_id):
 
     if request.method == 'POST':
         blog = get_object_or_404(Blog, id=blog_id, user=request.user)
-        form = BlogForm(request.POST, instance=blog)
+        form = BlogForm(request.POST, request.FILES , instance=blog)
         if form.is_valid():
             form.save()
             return redirect(reverse('blogs:myblogs') + f"#{blog.id}")
