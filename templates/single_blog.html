@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block body %}
+<h2 class="text-center my-2">Blog</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3 shadow-lg bg-light" >
+                <div class="card-header" style="background-color: black; color: white;">
+                    <h5>Author : {{blog.user}}</h5>
+                </div>
+                <div class="row g-0" style="background-color: blanchedalmond;">
+                  <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <img src="{{ blog.image.url }}" class="img-fluid" alt="blog_image">
+                  </div>
+                  <div class="col-md-8" style="background-color:rgb(163, 239, 239);">
+                        <div class="card-body">
+                                <h5 class="card-title" id="blogTitle">{{blog.title}}</h5>
+                                <p class="card-text" id="blogContent" style="white-space: pre-line;">{{blog.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
