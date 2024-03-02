@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-rxsyx^3jzutt*r+=3dtxcqm&!^p_02h-ld#os=err(9cz0ai#$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.1.7', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost','192.168.1.7', '127.0.0.1' ]
 
 
 # Application definition
@@ -81,10 +81,8 @@ WSGI_APPLICATION = 'blogpost.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS' : {
-            'read_default_file' : 'database.cnf',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME' : BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -143,6 +141,6 @@ class CustomFormRenderer(TemplatesSetting):
 FORM_RENDERER = "blogpost.settings.CustomFormRenderer"
 
 #media
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

@@ -67,6 +67,7 @@ def myblogs(request):
             blog = blog_form.save(commit=False)
             blog.user = request.user
             blog.save()
+            blog_form =BlogForm()
     else:
         blog_form = BlogForm()
 
