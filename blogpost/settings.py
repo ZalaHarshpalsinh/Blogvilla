@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'blogpost.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : os.getenv('POSTGRE_NAME'),
-        'USER' : os.getenv('POSTGRE_USER'),
-        'PASSWORD' : os.getenv('POSTGRE_PASSWORD'),
-        'HOST' : os.getenv('POSTGRE_HOST'),
-        'PORT' : os.getenv('POSTGRE_PORT'),
+        'NAME' : os.getenv('POSTGRES_DB'),
+        'USER' : os.getenv('PGUSER'),
+        'PASSWORD' : os.getenv('PGPASSWORD'),
+        'HOST' : os.getenv('PGHOST'),
+        'PORT' : os.getenv('PGPORT'),
     }
 }
 
