@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from django.urls import reverse_lazy
 import os
+import socket
 from django.forms.renderers import TemplatesSetting
 from dotenv import load_dotenv
 
@@ -29,7 +30,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.1.7', '127.0.0.1', '.vercel.app']
+LOCAL_IP = socket.gethostbyname(socket.gethostname())
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', LOCAL_IP ,'.vercel.app']
 
 
 # Application definition
